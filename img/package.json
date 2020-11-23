@@ -1,0 +1,22 @@
+{
+  "name": "moderate-img",
+  "version": "0.1.0",
+  "description": "This module provides image moderation functionalities.",
+  "dependencies": {
+    "awaity": "^1.0.0"
+  },
+  "devDependencies": {
+    "serverless-iam-roles-per-function": "^2.0.2",
+    "serverless-pseudo-parameters": "^2.5.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "keywords": [
+    "moderate",
+    "image"
+  ],
+  "author": "Leon Carlo Valencia",
+  "license": "ISC"
+}

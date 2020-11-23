@@ -1,0 +1,11 @@
+# Optional npm cache directory
+**/.npm
+
+# Dependency directories
+**/node_modules
+
+# Serverless directories
+**/.serverless
+
+# MacOS files
+**/.DS_Store
