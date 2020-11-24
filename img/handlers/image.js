@@ -21,7 +21,7 @@ const moderate = async (event) => {
       Name: process.env.MinConfidenceParamName,
     }
     const minConfidenceObj = await ssm.getParameter(paramParams).promise()
-    const MinConfidence = parseInt(minConfidenceObj.Parameter.Value)
+    const MinConfidence = parseFloat(minConfidenceObj.Parameter.Value)
     const records = event.Records.reduce((bodyRecords, record) => {
       const body = JSON.parse(record.body)
       return bodyRecords.concat(body.Records || [])
