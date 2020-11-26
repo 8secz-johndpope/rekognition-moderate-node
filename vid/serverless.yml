@@ -202,4 +202,4 @@ functions:
     events:
     - sns:
         arn: !Ref ResultTopic
-        topicName: ${self:custom.resultTopicName}
+        topicName: ${self:service}
