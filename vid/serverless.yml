@@ -3,7 +3,7 @@ service: ${file(./config.json):name}
 
 provider:
   name: aws
-  runtime: nodejs12.x #go1.x
+  runtime: nodejs12.x
 
   stage: ${opt:stage, file(./config.json):stage}
   region: ${opt:region, file(./config.json):region}
@@ -153,7 +153,7 @@ functions:
     - Effect: Allow
       Action:
       - ssm:GetParameter
-      Resource: arn:aws:ssm:${self:provider.region}:#{AWS::AccountId}:parameter${self:custom.minConfidenceParamName}
+      Resource: arn:aws:ssm:#{AWS::Region}:#{AWS::AccountId}:parameter${self:custom.minConfidenceParamName}
     - Effect: Allow
       Action:
       - s3:GetObject
@@ -187,9 +187,9 @@ functions:
     - Effect: Allow
       Action:
       - sns:Publish
-      Resource: arn:aws:sns:${self:provider.region}:#{AWS::AccountId}:${self:custom.alertTopicName}
+      Resource: arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:${self:custom.alertTopicName}
     environment:
-      AlertTopicArn: arn:aws:sns:${self:provider.region}:#{AWS::AccountId}:${self:custom.alertTopicName}
+      AlertTopicArn: arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:${self:custom.alertTopicName}
     events:
     - sns:
         arn: !Ref ResultTopic
